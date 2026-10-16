@@ -1,0 +1,995 @@
+/* ==========================================================================
+   DESIGN SYSTEM - TONS TERROSOS & CREME (LAYOUT CORRIGIDO)
+   ========================================================================== */
+
+/* Reset Global */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --creme: #f5ecdc;
+    --creme-claro: #fffaf1;
+    --creme-escuro: #e6d5bb;
+    --marrom: #51352a;
+    --marrom-escuro: #2f1d16;
+    --marrom-medio: #704b3a;
+    --marrom-claro: #96705a;
+    --dourado: #b88b55;
+    --texto: #39271f;
+    --texto-suave: #806b5d;
+    --branco: #ffffff;
+    --borda: rgba(81, 53, 42, 0.12);
+    --sombra: 0 12px 35px rgba(54, 35, 25, 0.10);
+    --sombra-forte: 0 22px 60px rgba(54, 35, 25, 0.15);
+    --raio: 20px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: 
+        radial-gradient(circle at 10% 0%, rgba(184, 139, 85, 0.13), transparent 30%),
+        radial-gradient(circle at 90% 100%, rgba(81, 53, 42, 0.08), transparent 30%),
+        var(--creme);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+main {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 60px 0;
+    flex: 1;
+}
+
+/* ==========================================================================
+   TIPOGRAFIA
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--marrom-escuro);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: clamp(2.3rem, 5vw, 4.2rem);
+    letter-spacing: -2px;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    letter-spacing: -1px;
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+p {
+    color: var(--texto-suave);
+}
+
+/* ==========================================================================
+   HEADER & NAVEGAÇÃO (Disposição Horizontal Perfeita)
+   ========================================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 16px 5%;
+    background: rgba(255, 250, 241, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--borda);
+}
+
+header nav {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    color: var(--marrom-escuro);
+    font-size: 1.7rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--dourado);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+nav ul a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 10px;
+    color: var(--marrom-medio);
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: 0.25s;
+}
+
+nav ul a:hover {
+    background: var(--creme-escuro);
+    color: var(--marrom-escuro);
+}
+
+/* ==========================================================================
+   BOTÕES E COMPONENTES GLOBAIS
+   ========================================================================== */
+
+button,
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--marrom);
+    color: var(--branco);
+    font-weight: 700;
+    transition: 0.25s;
+    box-shadow: 0 6px 16px rgba(81, 53, 42, 0.15);
+}
+
+button:hover,
+.btn:hover {
+    background: var(--marrom-escuro);
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background: transparent;
+    color: var(--marrom);
+    border: 1px solid rgba(81, 53, 42, 0.25);
+    box-shadow: none;
+}
+
+.btn-secundario:hover {
+    background: var(--creme-escuro);
+    color: var(--marrom-escuro);
+}
+
+/* ==========================================================================
+   HERO SECTION (Alinhamento em Grid Balanceado)
+   ========================================================================== */
+
+.hero {
+    min-height: 580px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 50px;
+    padding: 30px 0;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-content h1 {
+    margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+    color: var(--dourado);
+}
+
+.hero-content p {
+    max-width: 540px;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-card {
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border: 1px solid var(--borda);
+    border-radius: 30px;
+    background: linear-gradient(145deg, rgba(255, 250, 241, 0.9), rgba(230, 213, 187, 0.8));
+    box-shadow: var(--sombra-forte);
+}
+
+.hero-card::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    right: -70px;
+    top: -80px;
+    border-radius: 50%;
+    background: rgba(184, 139, 85, 0.18);
+}
+
+.hero-card::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: -50px;
+    bottom: -70px;
+    border-radius: 50%;
+    background: rgba(81, 53, 42, 0.08);
+}
+
+.hero-card-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-card-content strong {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--marrom);
+    font-size: 4.5rem;
+    line-height: 1;
+}
+
+.hero-card-content span {
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   SEÇÕES & CARDS (Disposição em Grid Uniforme)
+   ========================================================================== */
+
+.secao {
+    padding: 60px 0;
+}
+
+.secao-cabecalho {
+    max-width: 650px;
+    margin-bottom: 35px;
+}
+
+.secao-cabecalho h2 {
+    margin-bottom: 12px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    background: rgba(255, 250, 241, 0.92);
+    box-shadow: var(--sombra);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-forte);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-conteudo {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   PUBLICAÇÕES & FEED
+   ========================================================================== */
+
+.publicacao {
+    width: min(800px, 100%);
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: 24px;
+    background: var(--creme-claro);
+    box-shadow: var(--sombra);
+}
+
+.publicacao-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 24px 28px;
+}
+
+.publicacao-header h3 {
+    margin-bottom: 2px;
+}
+
+.foto-perfil {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 3px solid var(--creme-escuro);
+}
+
+.publicacao-conteudo {
+    padding: 0 28px 28px;
+}
+
+.publicacao-imagem {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+    margin: 20px 0;
+    background: var(--creme-escuro);
+}
+
+.publicacao-ajuda {
+    margin-top: 25px;
+    padding: 24px;
+    border-radius: 16px;
+    background: var(--creme);
+}
+
+.pix {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--creme-claro);
+    border: 1px solid var(--borda);
+}
+
+.pix span {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--dourado);
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.pix strong {
+    display: block;
+    color: var(--marrom);
+    word-break: break-word;
+}
+
+/* ==========================================================================
+   PERFIL DE USUÁRIO
+   ========================================================================== */
+
+.perfil {
+    width: min(1000px, 100%);
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid var(--borda);
+    border-radius: 28px;
+    background: var(--creme-claro);
+    box-shadow: var(--sombra);
+}
+
+.perfil-topo {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.perfil-topo img,
+.perfil-foto-placeholder {
+    flex-shrink: 0;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid var(--creme-escuro);
+}
+
+.perfil-foto-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--creme-escuro);
+    color: var(--marrom);
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.perfil-info h2 {
+    margin-bottom: 6px;
+}
+
+.perfil-info .btn {
+    margin-top: 14px;
+}
+
+.perfil-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.perfil-publicacoes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.perfil-publicacoes img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 14px;
+}
+
+.perfil-vazio {
+    padding: 45px 20px;
+    text-align: center;
+    border: 1px dashed var(--creme-escuro);
+    border-radius: 16px;
+}
+
+.perfil-vazio p {
+    margin: 8px 0 20px;
+}
+
+/* ==========================================================================
+   FORMULÁRIOS & CAMPOS (Alinhamento Centralizado Organizado)
+   ========================================================================== */
+
+form {
+    width: min(580px, 100%);
+    margin: 30px auto;
+    padding: 35px;
+    border: 1px solid var(--borda);
+    border-radius: 24px;
+    background: rgba(255, 250, 241, 0.94);
+    box-shadow: var(--sombra);
+}
+
+form h1,
+form h2 {
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.campo {
+    margin-bottom: 18px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--marrom);
+    font-weight: 700;
+}
+
+form label span {
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d7c5ae;
+    border-radius: 11px;
+    outline: none;
+    background: #fffdf8;
+    color: var(--texto);
+    transition: 0.2s;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: var(--dourado);
+    box-shadow: 0 0 0 4px rgba(184, 139, 85, 0.13);
+}
+
+form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+form input[type="file"] {
+    padding: 10px;
+    cursor: pointer;
+}
+
+form button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+form p {
+    margin-top: 18px;
+    text-align: center;
+}
+
+form p a {
+    color: var(--marrom);
+    font-weight: 700;
+}
+
+form p a:hover {
+    color: var(--dourado);
+}
+
+.form-acoes {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.form-acoes .btn,
+.form-acoes button {
+    flex: 1;
+    margin-top: 0;
+}
+
+.voltar {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--marrom);
+    font-weight: 700;
+}
+
+.voltar:hover {
+    color: var(--dourado);
+}
+
+/* ==========================================================================
+   PÁGINAS ESPECÍFICAS (EDITAR, PUBLICAR, COMENTÁRIOS)
+   ========================================================================== */
+
+.editar-container,
+.publicar-container {
+    width: min(680px, 100%);
+    margin: 0 auto;
+}
+
+.editar-header,
+.publicar-header {
+    margin-bottom: 25px;
+}
+
+.foto-atual {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding: 14px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: var(--creme);
+}
+
+.foto-atual img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.foto-atual strong {
+    color: var(--marrom);
+}
+
+.foto-atual p,
+form small {
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+}
+
+.imagem-atual {
+    overflow: hidden;
+    margin-bottom: 14px;
+    border-radius: 16px;
+    background: var(--creme-escuro);
+}
+
+.imagem-atual img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+.comentarios {
+    width: min(800px, 100%);
+    margin: 35px auto 0;
+}
+
+.comentarios h2 {
+    margin-bottom: 20px;
+}
+
+.comentario {
+    padding: 18px;
+    margin-bottom: 12px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: var(--creme-claro);
+}
+
+.comentario strong {
+    color: var(--marrom);
+}
+
+.comentario small {
+    display: block;
+    margin-top: 4px;
+    color: var(--marrom-claro);
+}
+
+/* ==========================================================================
+   FEEDBACKS (ERRO / SUCESSO)
+   ========================================================================== */
+
+.erro,
+.sucesso {
+    width: 100%;
+    padding: 13px 16px;
+    margin: 14px 0;
+    border-radius: 10px;
+}
+
+.erro {
+    border: 1px solid #ddb1a5;
+    background: #f3d9d1;
+    color: #71372c;
+}
+
+.sucesso {
+    border: 1px solid #bdcdb0;
+    background: #e3eadb;
+    color: #405536;
+}
+
+/* ==========================================================================
+   AUTENTICAÇÃO (LOGIN / CADASTRO)
+   ========================================================================== */
+
+.login-container,
+.cadastro-container {
+    width: min(440px, 100%);
+    margin: 30px auto;
+}
+
+.login-header,
+.cadastro-header {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.login-header .logo,
+.cadastro-header .logo {
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.login-footer,
+.cadastro-footer {
+    text-align: center;
+}
+
+.login-footer a,
+.cadastro-footer a {
+    color: var(--marrom);
+    font-weight: 700;
+}
+
+.login-footer a:hover,
+.cadastro-footer a:hover {
+    color: var(--dourado);
+}
+
+/* ==========================================================================
+   CTA & FOOTER
+   ========================================================================== */
+
+.cta {
+    max-width: 960px;
+    margin: 70px auto;
+    padding: 60px 40px;
+    border-radius: 28px;
+    background: var(--marrom);
+    color: var(--creme-claro);
+    text-align: center;
+    box-shadow: var(--sombra-forte);
+}
+
+.cta h2 {
+    margin-bottom: 12px;
+    color: var(--creme-claro);
+}
+
+.cta p {
+    max-width: 580px;
+    margin: 0 auto 25px;
+    color: #dbcbbb;
+}
+
+.cta .btn {
+    background: var(--creme-claro);
+    color: var(--marrom);
+}
+
+.cta .btn:hover {
+    background: var(--creme);
+}
+
+footer {
+    margin-top: 70px;
+    padding: 45px 7%;
+    background: var(--marrom-escuro);
+}
+
+footer h3 {
+    color: var(--creme-claro);
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #c6b3a2;
+}
+
+footer a {
+    color: var(--creme-escuro);
+}
+
+footer a:hover {
+    color: var(--branco);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES) - Disposição Fluida Adaptada
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        min-height: auto;
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    .hero-content {
+        align-items: center;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .cards,
+    .perfil-publicacoes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    header {
+        padding: 14px 4%;
+    }
+
+    header nav {
+        gap: 15px;
+    }
+
+    nav ul a {
+        padding: 8px 10px;
+        font-size: 0.88rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        width: 92%;
+        padding: 30px 0;
+    }
+
+    header {
+        padding: 12px 4%;
+    }
+
+    header nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    nav ul {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 4px;
+    }
+
+    nav ul a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        padding: 20px 0;
+        text-align: left;
+    }
+
+    .hero-content {
+        align-items: flex-start;
+    }
+
+    .hero-content p {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 0.98rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-card {
+        min-height: 280px;
+        padding: 20px;
+    }
+
+    .hero-card-content strong {
+        font-size: 3.5rem;
+    }
+
+    .cards,
+    .perfil-publicacoes {
+        grid-template-columns: 1fr;
+    }
+
+    .card img,
+    .perfil-publicacoes img {
+        height: 220px;
+    }
+
+    .publicacao-header {
+        padding: 18px;
+    }
+
+    .publicacao-conteudo {
+        padding: 0 18px 22px;
+    }
+
+    .publicacao-imagem {
+        height: 300px;
+    }
+
+    .perfil {
+        padding: 20px;
+    }
+
+    .perfil-topo,
+    .perfil-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .form-acoes {
+        flex-direction: column;
+    }
+
+    form {
+        padding: 22px;
+    }
+
+    .cta {
+        padding: 40px 20px;
+    }
+
+    .login-container,
+    .cadastro-container {
+        margin: 15px auto;
+    }
+}
