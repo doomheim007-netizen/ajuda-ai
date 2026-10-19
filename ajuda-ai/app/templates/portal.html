@@ -88,20 +88,7 @@
                 Encontre campanhas, conheça histórias e faça a diferença.
             </p>
 
-            {% if current_user.is_authenticated %}
-
-                <a href="{{ url_for('conta.publicar') }}" class="btn">
-                    Criar campanha
-                </a>
-
-            {% else %}
-
-                <a href="{{ url_for('autenticacao.cadastro') }}" class="btn">
-                    Criar conta
-                </a>
-
-            {% endif %}
-
+           
         </section>
 
 
